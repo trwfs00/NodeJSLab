@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+</head>
+
+<body class="bg-gray-900">
+    <%include ../partials/nav.ejs %>
+    <div class="flex justify-center items-center h-screen mx-auto max-w-4-xl">
+        <form class="space-y-4 md:space-y-6 p-6 rounded-3xl bg-white border shadow-sm min-w-[36em]" action="/student/update/" method="POST">
+            <h3 class="block text-md font-medium text-gray-900">Update Student Information (*)</h3>
+            <div class="relative z-0 w-full my-6 group text-left">
+                <input type="text" name="id" hidden value="<%= student._id %>">
+                <input type="text" name="stdId" id="stdId"
+                    class="block py-3.5 px-0 w-full text-md font-normal text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-900 peer"
+                    placeholder=" " value="<%= student?.stdId %>" required/>
+                <label htmlFor="stdId"
+                    class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Student ID</label>
+            </div>
+            <div class="relative z-0 w-full my-6 group text-left">
+                <input type="text" name="name" id="name"
+                    class="block py-3.5 px-0 w-full text-md font-normal text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-900 peer"
+                    placeholder=" " value="<%= student?.name %>" required />
+                <label htmlFor="name"
+                    class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Student Name</label>
+            </div>
+            <div class="relative z-0 w-full my-6 group text-left">
+                <input type="email" name="email" id="email"
+                    class="block py-3.5 px-0 w-full text-md font-normal text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-900 peer"
+                    placeholder=" " value="<%= student?.email %>" required />
+                <label htmlFor="email"
+                    class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+            </div>
+            <select id="underline_select" name="yos"
+                className="block py-3.5 px-0 w-full text-md font-normal text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-900 peer">
+                <option selected disabled>Year of Study</option>
+                <option value="1">1 - First Year</option>
+                <option value="2">2 - Second Year</option>
+                <option value="3">3 - Third Year</option>
+                <option value="4">4 - Fouth Year</option>
+            </select>
+            <label htmlFor="underline_select"
+                    class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Year of Study</label>
+            <!-- <div class="relative z-0 w-full my-6 group text-left">
+                <input type="number" name="yos" id="yos" min="0" max="4"
+                    class="block py-3.5 px-0 w-full text-md font-normal text-gray-900 bg-transparent border-0 border-b border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-gray-900 peer"
+                    placeholder=" " value="yos" required />
+                <label htmlFor="yos"
+                    class="peer-focus:font-medium absolute text-sm text-gray-700 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-gray-900 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Year of Study</label>
+            </div> -->
+            <div class="relative max-w-full">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                  </svg>
+                </div>
+                <input datepicker datepicker-autohide name="dob" type="text" value="<%= student?.dob %>" id="dob" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="Date of Birth" required>
+            </div>
+            <div class="block pt-2">
+                <button type="submit" class="w-full bg-[#0F172A] text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-md px-5 py-2.5 text-center">Update Student</button>
+            </div>
+            <p class="text-sm italic font-normal text-gray-500">
+                Please fill every form to update this Student Data.
+            </p>
+        </form>
+    </div>
+</body>
+
+<script>
+    // Get the student.yos value, e.g., from your backend
+    const studentYOS = '<%= student?.yos %>'; // Make sure to use the correct syntax
+
+    // Select the <select> element by its id
+    const selectElement = document.getElementById('underline_select');
+
+    // Loop through the options and set the selected attribute for the matching value
+    for (let i = 0; i < selectElement.options.length; i++) {
+        if (selectElement.options[i].value === studentYOS) {
+            selectElement.options[i].selected = true;
+            break; // Stop the loop once a match is found
+        }
+    }
+</script>
+
+</html>

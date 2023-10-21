@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="border-gray-200 bg-gray-900">
+    <header class="border-gray-200 dbg-gray-900">
+        <%include ../partials/nav.ejs %>
+        <div class="sm:pt-42 pt-48 pb-20 px-10 sm:px-20 md:px-40 lg:px-60 text-white" style="display: flex;flex-direction: column;">
+            <img src="https://media.licdn.com/dms/image/C4D03AQFTAJZcVtIEWw/profile-displayphoto-shrink_400_400/0/1668068395940?e=1700092800&v=beta&t=Gd4gHG4paz9-CY0FcaB0BvW6Y_AOS8zZUPXL6_qqwFg"
+                class="w-14 my-10 rounded-full hover:-translate-y-4 transition delay-75 duration-300 ease-in-out"
+                style="border: 2px rgba(255,255,255,0.25) solid;cursor: pointer;" />
+            <h1 class="text-5xl font-bold">
+                <%= port.name %>
+            </h1>
+            <h3 class="text-4xl font-bold">
+                Student Portfolio.
+            </h3>
+        </div>
+    </header>
+    <section class="border-gray-200 bg-gray-900">
+        <div class="flex justify-between px-10 sm:px-20 md:px-40 lg:px-60 gap-12">
+            <article class="flex-1">
+                <h2 class="text-2xl text-white font-semibold py-6">About me.</h2>
+                <p class="text-md text-gray-400">
+                    I am a passionate and dedicated
+                    Computing and Digital Technologies student currently pursuing my bachelor's
+                    degree at Khon Kaen University. I have a strong interest in web development
+                    and programming.
+                </p>
+            </article>
+            <article class="flex-1">
+                <h2 class="text-2xl text-white font-semibold py-6">Contact me.</h2>
+                <p class="text-md text-gray-400">
+                    Get in Touch Today for Any Inquiries or Collaborations. Contact Me Now!<br>
+                    You can reach me at <a class="font-normal text-blue-600 dark:text-blue-500 hover:underline" href="mailto:<%= port.contact.email %>"><%= port.contact.email %></a>. Feel free to connect with me on <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" href="<%= port.contact.linkedin %>">LinkedIn</a> as well.
+                </p>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

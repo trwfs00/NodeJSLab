@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b20cf1b04b.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="border-gray-200 bg-gray-900">
+    <header class="border-gray-200 bg-gray-900">
+        <%include ../partials/nav.ejs %>
+            <div class="sm:pt-42 pt-48 pb-20 px-10 sm:px-20 md:px-40 lg:px-60 text-gray-900 dark:text-white"
+                style="display: flex;flex-direction: column;">
+                <h1 class="text-white text-5xl font-bold">
+                    My Resume.
+                </h1>
+                <p class="text-xl py-4 text-gray-300">Explore my qualifications and experience in software engineering and web development. Proficient in HTML, CSS, JavaScript, and frameworks like ReactJS, NextJS. Skilled in UX/UI design, databases, Git, and more. Currently pursuing a Bachelor of Information Technology at Khon Kaen University. Check out my project portfolio and work experience below.</p>
+            </div>
+    </header>
+    <section class="bg-gray-50 border-gray-200 mx-10 sm:mx-20 md:mx-40 lg:mx-60 mb-40 rounded-lg">
+        <div class="px-20 py-20">
+            <article class="flex row justify-between">
+                <span class="flex-1">
+                    <h2 class="text-5xl text-gray-900 dark:text-gray-600 font-medium py-3 pl-4">RESUME</h2>
+                    <h2
+                        class="text-3xl text-gray-900 dark:text-gray-600 font-normal tracking-[0.3em] py-3 pb-8 uppercase pl-4">
+                        <%= port.name %>
+                    </h2>
+                    <hr class="w-100" style="border: 1.5px solid gray">
+                    <div class="bg-gray-100 flex row gap-16 py-5 pl-4">
+                        <ul class="text-xl text-gray-500 flex-1">
+                            <li class="my-2">
+                                <p><b class="text-gray-600">Gender: </b>Male</p>
+                            </li>
+                            <li class="my-2">
+                                <p><b class="text-gray-600">Age: </b>20 years old</p>
+                            </li>
+                            <li class="my-2">
+                                <p><b class="text-gray-600">Date of Birth: </b>March 19th, 2003</p>
+                            </li>
+                            <li class="my-2">
+                                <p><b class="text-gray-600">Religion: </b>Buddhism</p>
+                            </li>
+                        </ul>
+                        <ul class="text-xl text-gray-500 flex-1 px-2">
+                            <li class="my-2 mb-1">
+                                <p>
+                                    <i
+                                        class="fa-solid fa-envelope rounded-full bg-[#aa4444] p-1 px-2 text-white text-sm"></i>
+                                    <%= port.contact.email %>
+                                </p>
+                            </li>
+                            <li class="my-2 mb-1">
+                                <p>
+                                    <i
+                                        class="fa-solid fa-phone rounded-full bg-[#aa4444] p-1 px-2 text-white text-sm"></i>
+                                    <%= port.contact.phone %>
+                                </p>
+                            </li>
+                            <li class="my-1">
+                                <p>
+                                    <i
+                                        class="fa-solid fa-location-dot rounded-full bg-[#aa4444] p-1 px-[.7em] text-white text-sm"></i>
+                                    Kasiensin Place, 638 m.12, Sila, Mueang, Khon Kaen, Thailand, 40000
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                <img src="/images/photostudent-2.png" alt="รูปนักศึกษา" class="flex h-[21.6em]">
+            </article>
+            <article class="flex-1 px-4">
+                <h2 class="text-2xl text-gray-900 dark:text-gray-700 font-semibold tracking-[0.3em] py-6 uppercase">
+                    Qualification</h2>
+                <ul class="text-xl text-gray-600 flex-1 px-2 list-disc px-8">
+                    <li class="my-1">
+                        <p>
+                            Understanding of software development best practices and coding standards due to
+                            comprehensive education in Software Engineering.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            Experience with web development technologies such as HTML, CSS, JavaScript, Laravel,
+                            ReactJS, NextJS, etc.due to education in Web Application Programming.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            Understanding of front-end development principles and responsive design, and Excellent at
+                            UX/UI design due to education in Human-Computing Interface and Web Design Technology.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            Familiarity with databases, SQL, and version control systems such as Git.
+                        </p>
+                    </li>
+                </ul>
+            </article>
+            <div class="flex justify-between gap-16">
+                <article class="flex-1 px-4">
+                    <h2 class="text-2xl text-gray-900 dark:text-gray-700 font-semibold tracking-[0.3em] py-6 uppercase">Skills</h2>
+                    <ul class="text-xl text-gray-600 flex-1 px-2 list-disc px-8">
+                        <li class="my-1">
+                            <p>
+                                Web technologies: HTML5, CSS3, JavaScript (ES6), TypeScript.
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Programming languages: Java, Kotlin, PHP, Python.
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Frameworks: Bootstrap, TailwindCSS, Laravel, ReactJS, NextJS.
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Database: MySQL, MongoDB.
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Version control: Git, GitHub
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Responsive design and cross-browser compatibility
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                UX/UI design principles
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Well communication and teamwork
+                            </p>
+                        </li>
+                    </ul>
+                </article>
+                <article class="flex-1 px-4">
+                    <h2 class="text-2xl text-gray-900 dark:text-gray-700 font-semibold tracking-[0.3em] py-6 uppercase">Education and Training</h2>
+                    <ul class="text-xl text-gray-600 flex-1 px-2 list-disc px-8">
+                        <li class="my-1">
+                            <p>
+                                Bachelor of Information Technology, Khon Kaen University - 3rd year
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Languages - Thai [Navtive], English [Intermediate B1-B2 EF SET Quick Check]
+                            </p>
+                        </li>
+                    </ul>
+                    <h2 class="text-2xl text-gray-900 dark:text-gray-700 font-semibold tracking-[0.3em] py-6 uppercase">WORK/ACTIVITIES EXPERIENCE</h2>
+                    <ul class="text-xl text-gray-600 flex-1 px-2 list-disc px-8">
+                        <li class="my-1">
+                            <p>
+                                Computer Graphic of Theera Gems Group Partnership. | 2023 - Present
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Design a landing page for MENTOR DIAMOND, a chain jewelry store of Theera Gems Group Partnership.
+                            </p>
+                        </li>
+                        <li class="my-1">
+                            <p>
+                                Collaborate with Asst. Prof. Sumonta Kasemvilas, Ph.D. in Content & Media Designer Contest.
+                            </p>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+            <article class="flex-1 px-4">
+                <h2 class="text-2xl text-gray-900 dark:text-gray-700 font-semibold tracking-[0.3em] py-6 uppercase">Project Experience</h2>
+                <ul class="text-xl text-gray-600 flex-1 px-2 list-disc px-8">
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 361 001] Inspiration in IT Career: </b>MyCloud Streaming Application, I'm main designer using Figma.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 361 003] Object Oriented Concepts and Programming & [SC 361 005] Introduction to Computer Organization and Architecture: </b>
+                            Armbot and Controller UI, using sensor to dectect object in front of the arm. I'm main developer in Controller UI using Java.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 361 004] Human-Computer Interaction: </b>Tripfriends - Traveling application with finding hotel, trip, plane and friend. I'm the main designer.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 003] Introduction to Computer Networking: </b>Cat & Dev - the running co-op game using UNITY
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 004] Web Application Programming & [SC 362 005] Database Analysis and Design: </b>
+                            Yuedna. - Clothes store in japanese style using bootstrap, laravel.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 201] Web Design Technologies: </b> Paope. - Bags store using bootstrap.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 006] Information and Communication Technology Security: </b> Morse-code chat and transalator. I wrote them all. 
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 007] Mobile Device Programming: </b> Emply. - the job finder application. I'm Project Manager and main merging and fix bugs.
+                        </p>
+                    </li>
+                    <li class="my-1">
+                        <p>
+                            <b class="text-gray-600 font-semibold">[SC 362 202] Mobile Web Application Development: </b> Aerio. Air quality application, using React Native fetching API from IQAir.
+                        </p>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

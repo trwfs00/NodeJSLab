@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b20cf1b04b.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body class="border-gray-200 bg-gray-900">
+    <%include ../partials/nav.ejs %>
+        <section class="relative isolate overflow-auto bg-gray-900 px-6 py-24 sm:py-32 lg:px-8 h-screen">
+            <div class="mx-auto max-w-2xl lg:text-center">
+                <h2 class="text-base font-semibold leading-7 text-indigo-600">Student List</h2>
+                <p class="mt-2 text-3xl font-bold tracking-tighter sm:text-4xl text-white">Computing and Digital
+                    Technologies Major</p>
+                <p class="mt-6 text-lg leading-8 text-gray-400">The Student List Table for Computing and Digital
+                    Technologies Major includes ID, name, year of study, and email information for easy academic
+                    management.
+                </p>
+            </div>
+            <div class="bg-gray-900 py-24 sm:py-32">
+                <div class="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div class="flex justify-end my-2">
+                        <%include ../partials/modal.ejs %>
+                    </div>
+                    <div class="relative overflow-x-auto rounded-lg">
+                        <table class="w-full text-sm text-left text-gray-white">
+                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-white">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        Student ID
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Year of Study
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Email
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Manage
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTable">
+                                <% if (students.length >= 1) { %>
+                                    <% for (let student of students) { %>
+                                        <tr class="border-b bg-gray-800 border-gray-700">
+                                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap text-white">
+                                                <%= student.stdId %>
+                                            </th>
+                                            <td class="px-6 py-4 text-white">
+                                                <%= student.name %>
+                                            </td>
+                                            <td class="px-6 py-4 text-white">
+                                                <%= student.yos %>
+                                            </td>
+                                            <td class="px-6 py-4 text-white">
+                                                <%= student.email %>
+                                            </td>
+                                            <td class="px-6 py-4 flex flex-row gap-2">
+                                                <a class="btn text-md text-white bg-blue-500 p-2 px-4 rounded-lg"
+                                                href="/student/update/<%= student._id %>"><i class="fa-regular fa-pen-to-square"></i> Update</a>
+                                                <button onclick="confirmDelete('<%= student._id %>')"
+                                                    class="btn text-md text-white bg-red-500 p-2 px-4 rounded-lg">
+                                                    <i class="fa-solid fa-minus"></i> Delete</a>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                <% } else { %>
+                                    <tr>
+                                        <td rowspan="5">
+                                            <p class="text-white text-md py-2 px-2">
+                                                There is no student data
+                                            </p>
+                                        </td>
+                                    </tr>
+                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            function confirmDelete(studentId) {
+                if (confirm('Are you sure you want to delete this student?')) {
+                    window.location.href = '/student/delete?id=' + studentId;
+                }
+            }
+        </script>
+
+        <!--<script>
+        let studentsData = [
+            {
+                id: '001',
+                name: 'John Doe',
+                year: '3rd Year',
+                email: 'john.doe@example.com'
+            },
+            {
+                id: '002',
+                name: 'Jane Smith',
+                year: '2nd Year',
+                email: 'jane.smith@example.com'
+            },
+            {
+                id: '003',
+                name: 'Michael Johnson',
+                year: '4th Year',
+                email: 'michael.johnson@example.com'
+            }
+        ];
+
+        let tbody = document.getElementById('studentTable');
+
+        studentsData.forEach(function(student) {
+            let row = document.createElement('tr');
+            row.className = "bg-white border-b dark:bg-gray-800 dark:border-gray-700";
+
+            let idCell = document.createElement('th');
+            idCell.scope = "row";
+            idCell.className = "px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white";
+            idCell.textContent = student.id;
+
+            let nameCell = document.createElement('td');
+            nameCell.className = "px-6 py-4";
+            nameCell.textContent = student.name;
+
+            let yearCell = document.createElement('td');
+            yearCell.className = "px-6 py-4";
+            yearCell.textContent = student.year;
+
+            let emailCell = document.createElement('td');
+            emailCell.className = "px-6 py-4";
+            emailCell.textContent = student.email;
+
+            row.appendChild(idCell);
+            row.appendChild(nameCell);
+            row.appendChild(yearCell);
+            row.appendChild(emailCell);
+
+            tbody.appendChild(row);
+        });
+    </script>-->
+</body>
+
+</html>
